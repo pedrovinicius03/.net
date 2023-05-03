@@ -1,0 +1,23 @@
+using System;
+using System.IO;
+
+namespace ExemploArquivoCliente
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string nomeCliente = "João da Silva";
+            string tipoPessoa = "fisica"; // ou "juridica"
+
+            // converte o nome do cliente para um formato válido para um nome de arquivo
+            string nomeArquivo = $"{tipoPessoa}_{nomeCliente.Replace(" ", "_")}.txt";
+
+            // cria o arquivo no diretório atual do programa
+            using (StreamWriter writer = new StreamWriter(nomeArquivo))
+            {
+                writer.WriteLine($"Arquivo criado para o cliente {nomeCliente}");
+            }
+        }
+    }
+}
